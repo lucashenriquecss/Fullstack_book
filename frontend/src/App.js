@@ -68,8 +68,14 @@ function App() {
                   <SignUp {...props} signup={signup}/>
                 }></Route>
               </Switch>
-
       </div>
+      <footer className='text-center text-lg-start bg-light text-muted mt-4'>
+          <div className='text-center p-4'>
+              © Copyright
+              <a> lucas henrique</a>
+
+          </div>
+      </footer>
     </div>
   );
 }
