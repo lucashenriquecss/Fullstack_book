@@ -4,7 +4,7 @@
 function SignUp() {
     return (
         <div className="App">
-            SignUp
+            SignUpteste
         </div>
     );
 }
