@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,11 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
 ]
 REST_FRAMEWORK = {
-'DEFAULT_AUTHENTICATION_CLASSES':[
-'rest_framework.authentication.TokenAuthentication',
-]
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+    'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 ROOT_URLCONF = 'backend.urls'
 

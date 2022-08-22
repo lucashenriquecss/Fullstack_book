@@ -9,7 +9,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Navbar';
-
+import TodoDataService from './services/todos';
 function App() {
   const [user,setUser] = React.useState(null);
   const [token,setToken] = React.useState(null);
@@ -17,7 +17,18 @@ function App() {
 
   async function login(user = null){
     //default user to null
-    setUser(user);
+    TodoDataService.login(user)
+      .then(response =>{
+            setToken(response.data.token);
+            setUser(user.username);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', user.username);
+            setError('');
+      })
+      .catch( e =>{
+        console.log('login', e);
+          setError(e.toString());
+      });
   }
   async function logout(){
     setUser(null);
